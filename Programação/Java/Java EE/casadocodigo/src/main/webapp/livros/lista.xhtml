@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<h:dataTable value="#{adminListaLivrosBean.livros}" var="livro">
+		<h:column>
+			<f:facet name="header">Título</f:facet>
+			#{livro.titulo}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Descrição</f:facet>
+			#{livro.descricao}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Preço</f:facet>
+			#{livro.preco}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Número de Páginas</f:facet>
+			#{livro.numeroDePaginas}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Autor(es)</f:facet>
+			<ul>
+				<ui:repeat var="autor" value="#{livro.autores}">
+					<li>{autor.nome}</li>
+				</ui:repeat>
+			</ul>
+		</h:column>
+	</h:dataTable>
+	
+</html>
