@@ -1,17 +1,18 @@
-package form;
+package br.com.casadocodigo.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.inject.Model;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import br.com.casadocodigo.daos.LivroDao;
 import br.com.casadocodigo.models.Livro;
-import lombok.Getter;
 
-@Model
+@Named
+@ViewScoped
 public class AdminListaLivrosBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -3,32 +3,39 @@
 	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	  xmlns:h="http://xmlns.jcp.org/jsf/html"
 	  xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-	<h:dataTable value="#{adminListaLivrosBean.livros}" var="livro">
-		<h:column>
-			<f:facet name="header">Título</f:facet>
-			#{livro.titulo}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Descrição</f:facet>
-			#{livro.descricao}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Preço</f:facet>
-			#{livro.preco}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Número de Páginas</f:facet>
-			#{livro.numeroDePaginas}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Autor(es)</f:facet>
-			<ul>
-				<ui:repeat var="autor" value="#{livro.autores}">
-					<li>{autor.nome}</li>
-				</ui:repeat>
-			</ul>
-		</h:column>
-	</h:dataTable>
 	
+	<h:head>
+		<meta charset="UTF-8" />
+		<title>Casa do Código - Cadastro de Livros</title>
+	</h:head>
+	
+	<h:body>
+		<h:messages />
+		<h:dataTable value="#{adminListaLivrosBean.livros}" var="livro">
+			<h:column>
+				<f:facet name="header">Título</f:facet>
+				#{livro.titulo}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Descrição</f:facet>
+				<h:outputText escape="false" value="#{livro.descricao}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Preço</f:facet>
+				#{livro.preco}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Número de Páginas</f:facet>
+				#{livro.numeroDePaginas}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Autor(es)</f:facet>
+				<ul>
+					<ui:repeat var="autor" value="#{livro.autores}">
+						<li>#{autor.nome}</li>
+					</ui:repeat>
+				</ul>
+			</h:column>
+		</h:dataTable>
+	</h:body>
 </html>

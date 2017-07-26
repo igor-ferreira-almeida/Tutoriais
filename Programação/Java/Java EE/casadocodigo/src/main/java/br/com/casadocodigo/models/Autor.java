@@ -31,4 +31,8 @@ public class Autor {
 	
 	private String nome;
 	
+	public Autor(Long id) {
+		this.id = id;
+	}
+	
 }

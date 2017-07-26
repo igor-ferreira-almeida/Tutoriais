@@ -3,33 +3,41 @@
 	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	  xmlns:h="http://xmlns.jcp.org/jsf/html"
 	  xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-	<h:form>
-		<div>
-			<h:outputLabel value="Título" />
-			<h:inputText value="#{adminLivroBean.livro.titulo}" />
-		</div>
-		<div>
-			<h:outputLabel value="Descrição" />
-			<h:inputTextarea cols="20" rows="4" value="#{adminLivroBean.livro.descricao}" />
-		</div>
-		<div>
-			<h:outputLabel value="Número de Páginas" />
-			<h:inputText value="#{adminLivroBean.livro.numeroDePaginas}" />
-		</div>
-		<div>
-			<h:outputLabel value="Preço" />
-			<h:inputText value="#{adminLivroBean.livro.preco}" />
-		</div>
-		
-		<div>
-			<h:outputLabel value="Autores" />
-			<h:selectManyListbox>
-				<f:selectItems itemLabel="#{autor.nome}" itemValue="#{autor.id}" value="#{adminLivroBean.autores}" var="autor" />
-			</h:selectManyListbox>
-		</div>
-		
-		<h:commandButton action="#{adminLivroBean.salvar}" value="Cadastrar" />
-	</h:form>
-
+	
+	<h:head>
+		<meta charset="UTF-8" />
+		<title>Casa do Código - Cadastro de Livros</title>
+	</h:head>
+	<h:body>
+		<h:form>
+			<div>
+				<h:outputLabel value="Título" />
+				<h:inputText value="#{adminLivroBean.livro.titulo}" />
+			</div>
+			<div>
+				<h:outputLabel value="Descrição" />
+				<h:inputTextarea cols="20" rows="4" value="#{adminLivroBean.livro.descricao}" />
+			</div>
+			<div>
+				<h:outputLabel value="Número de Páginas" />
+				<h:inputText value="#{adminLivroBean.livro.numeroDePaginas}" />
+			</div>
+			<div>
+				<h:outputLabel value="Preço" />
+				<h:inputText value="#{adminLivroBean.livro.preco}" />
+			</div>
+			
+			<div>
+				<h:outputLabel value="Autores" />
+				<h:selectManyListbox value="#{adminLivroBean.autoresId}" converter="javax.faces.Long">
+					<f:selectItems itemLabel="#{autor.nome}" 
+								   itemValue="#{autor.id}" 
+								   value="#{adminLivroBean.autores}" 
+								   var="autor" />
+				</h:selectManyListbox>
+			</div>
+			
+			<h:commandButton action="#{adminLivroBean.salvar}" value="Cadastrar" />
+		</h:form>
+	</h:body>
 </html>
