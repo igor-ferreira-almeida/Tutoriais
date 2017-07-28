@@ -28,10 +28,6 @@ public class AdminLivroBean implements Serializable {
 	@Setter
 	private Livro livro = new Livro();
 	
-	@Getter
-	@Setter
-	private List<Long> autoresId = new ArrayList<>();
-	
 	@Inject
 	private LivroDao livroDao;
 	
@@ -42,10 +38,7 @@ public class AdminLivroBean implements Serializable {
 	private FacesContext context;
 	
 	@Transactional
-	public String salvar() {
-		
-		autoresId.forEach(autorId -> livro.getAutores().add(new Autor(autorId)));
-		
+	public String salvar() {	
 		livroDao.salvar(livro);
 		
 		context.getExternalContext().getFlash().setKeepMessages(true);
@@ -60,6 +53,5 @@ public class AdminLivroBean implements Serializable {
 	
 	private void resetFields() {
 		livro = new Livro();
-		autoresId = new ArrayList<>();
 	}
 }

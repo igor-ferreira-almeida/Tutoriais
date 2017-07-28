@@ -11,30 +11,41 @@
 	<h:body>
 		<h:form>
 			<div>
-				<h:outputLabel value="Título" />
-				<h:inputText value="#{adminLivroBean.livro.titulo}" />
+				<h:outputLabel for="titulo" value="Título" />
+				<h:inputText id="titulo" value="#{adminLivroBean.livro.titulo}" />
+				<h:message for="titulo" />
 			</div>
 			<div>
-				<h:outputLabel value="Descrição" />
-				<h:inputTextarea cols="20" rows="4" value="#{adminLivroBean.livro.descricao}" />
+				<h:outputLabel for="descricao" value="Descrição" />
+				<h:inputTextarea cols="20" id="descricao" rows="4" value="#{adminLivroBean.livro.descricao}" />
+				<h:message for="descricao" />
 			</div>
 			<div>
-				<h:outputLabel value="Número de Páginas" />
+				<h:outputLabel for="numeroDePaginas" value="Número de Páginas" />
 				<h:inputText value="#{adminLivroBean.livro.numeroDePaginas}" />
+				<h:message for="numeroDePaginas" />
 			</div>
 			<div>
-				<h:outputLabel value="Preço" />
-				<h:inputText value="#{adminLivroBean.livro.preco}" />
+				<h:outputLabel for="preco" value="Preço" />
+				<h:inputText id="preco" value="#{adminLivroBean.livro.preco}" />
+				<h:message for="preco" />
 			</div>
 			
 			<div>
-				<h:outputLabel value="Autores" />
-				<h:selectManyListbox value="#{adminLivroBean.autoresId}" converter="javax.faces.Long">
+				<h:outputLabel for="autores" value="Autores" />
+				<h:selectManyListbox converter="autorConverter" id="autores" value="#{adminLivroBean.livro.autores}">
 					<f:selectItems itemLabel="#{autor.nome}" 
-								   itemValue="#{autor.id}" 
+								   itemValue="#{autor}" 
 								   value="#{adminLivroBean.autores}" 
 								   var="autor" />
 				</h:selectManyListbox>
+				<h:message for="autores" />
+			</div>
+			
+			<div>
+				<h:outputLabel for="dataDaPublicacao" value="Data da Publicação" />
+				<h:inputText converter="localDateConverter" id="dataDaPublicacao" value="#{adminLivroBean.livro.dataDaPublicacao}" />
+				<h:message for="dataDaPublicacao" />
 			</div>
 			
 			<h:commandButton action="#{adminLivroBean.salvar}" value="Cadastrar" />
