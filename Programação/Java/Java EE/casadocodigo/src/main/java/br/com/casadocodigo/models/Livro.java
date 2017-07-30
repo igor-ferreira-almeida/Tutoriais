@@ -60,6 +60,9 @@ public class Livro {
 	@Column(name = "data_da_publicacao")
 	private LocalDate dataDaPublicacao;
 	
+	@Column(name = "capa_path")
+	private String capaPath;
+	
 	@JoinTable(
 		name = "livros_autores", 
 		joinColumns = {@JoinColumn(name = "livro_id")},

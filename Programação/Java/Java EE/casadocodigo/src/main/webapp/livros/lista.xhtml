@@ -13,6 +13,10 @@
 		<h:messages />
 		<h:dataTable value="#{adminListaLivrosBean.livros}" var="livro">
 			<h:column>
+				<f:facet name="header">Capa</f:facet>
+				<img alt="#{livro.titulo}" src="#{request.contextPath}/file/#{livro.capaPath}" />
+			</h:column>
+			<h:column>
 				<f:facet name="header">Título</f:facet>
 				#{livro.titulo}
 			</h:column>

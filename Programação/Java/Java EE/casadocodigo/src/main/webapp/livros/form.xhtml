@@ -9,7 +9,7 @@
 		<title>Casa do Código - Cadastro de Livros</title>
 	</h:head>
 	<h:body>
-		<h:form>
+		<h:form enctype="multipart/form-data">
 			<div>
 				<h:outputLabel for="titulo" value="Título" />
 				<h:inputText id="titulo" value="#{adminLivroBean.livro.titulo}" />
@@ -46,6 +46,12 @@
 				<h:outputLabel for="dataDaPublicacao" value="Data da Publicação" />
 				<h:inputText converter="localDateConverter" id="dataDaPublicacao" value="#{adminLivroBean.livro.dataDaPublicacao}" />
 				<h:message for="dataDaPublicacao" />
+			</div>
+			
+			<div>
+				<h:outputLabel for="capaDoLivro" value="Capa do Livro" />
+				<h:inputFile id="capaDoLivro" value="#{adminLivroBean.capaLivro}" />
+				<h:message for="capaDoLivro" />
 			</div>
 			
 			<h:commandButton action="#{adminLivroBean.salvar}" value="Cadastrar" />
