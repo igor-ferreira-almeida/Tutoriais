@@ -7,40 +7,62 @@
 	<h:head>
 		<meta charset="UTF-8" />
 		<title>Casa do Código - Cadastro de Livros</title>
+		<h:outputStylesheet library="css" name="bootstrap.min.css" />
 		<h:outputStylesheet library="css" name="lista-produtos.css" />
+		<h:outputStylesheet library="css" name="admin.css" />
 	</h:head>
 	
 	<h:body>
-		<h:messages />
-		<h:dataTable value="#{adminListaLivrosBean.livros}" var="livro">
-			<h:column>
-				<f:facet name="header">Capa</f:facet>
-				<img alt="#{livro.titulo}" class="product-image" src="#{request.contextPath}/file/#{livro.capaPath}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Título</f:facet>
-				#{livro.titulo}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Descrição</f:facet>
-				<h:outputText escape="false" value="#{livro.descricao}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Preço</f:facet>
-				#{livro.preco}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Número de Páginas</f:facet>
-				#{livro.numeroDePaginas}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Autor(es)</f:facet>
-				<ul>
-					<ui:repeat var="autor" value="#{livro.autores}">
-						<li>#{autor.nome}</li>
-					</ui:repeat>
-				</ul>
-			</h:column>
-		</h:dataTable>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Casa do Código</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><h:link value="Cadastro" outcome="form" /></li>
+						<li class="active"><a href="#">Lista</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</nav>
+		
+		<div class="container">
+		
+			<h1></h1>
+		
+			<h:messages />
+			<h:dataTable class="table table-bordered table-hover table-striped" value="#{adminListaLivrosBean.livros}" var="livro">
+				<h:column>
+					<f:facet name="header">Capa</f:facet>
+					<img alt="#{livro.titulo}" class="product-image" src="#{request.contextPath}/file/#{livro.capaPath}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Título</f:facet>
+					#{livro.titulo}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Descrição</f:facet>
+					<h:outputText escape="false" value="#{livro.descricao}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Preço</f:facet>
+					#{livro.preco}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Número de Páginas</f:facet>
+					#{livro.numeroDePaginas}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Autor(es)</f:facet>
+					<ul>
+						<ui:repeat var="autor" value="#{livro.autores}">
+							<li>#{autor.nome}</li>
+						</ui:repeat>
+					</ul>
+				</h:column>
+			</h:dataTable>
+		</div>
 	</h:body>
 </html>
