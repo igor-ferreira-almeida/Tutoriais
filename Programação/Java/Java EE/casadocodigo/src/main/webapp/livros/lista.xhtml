@@ -7,6 +7,7 @@
 	<h:head>
 		<meta charset="UTF-8" />
 		<title>Casa do Código - Cadastro de Livros</title>
+		<h:outputStylesheet library="css" name="lista-produtos.css" />
 	</h:head>
 	
 	<h:body>
@@ -14,7 +15,7 @@
 		<h:dataTable value="#{adminListaLivrosBean.livros}" var="livro">
 			<h:column>
 				<f:facet name="header">Capa</f:facet>
-				<img alt="#{livro.titulo}" src="#{request.contextPath}/file/#{livro.capaPath}" />
+				<img alt="#{livro.titulo}" class="product-image" src="#{request.contextPath}/file/#{livro.capaPath}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Título</f:facet>
