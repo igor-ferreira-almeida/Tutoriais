@@ -1,0 +1,20 @@
+{
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "express": "4.15.4",
+    "request": "2.81.0"
+  },
+  "engines": {
+    "node": ">= 6.11.x",
+    "npm": ">=3.6.x"
+  },
+  "author": "Igor Ferreira de Almeida",
+  "license": "ISC"
+}

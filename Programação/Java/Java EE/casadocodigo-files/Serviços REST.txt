@@ -1,0 +1,17 @@
+
+Adicionando Plugin
+
+https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm/related
+
+
+Fazer um POST na url:
+
+http://book-payment.herokuapp.com/payment
+
+head: 
+
+Content-Type: application/json
+
+body:
+
+{"value" : 400}
