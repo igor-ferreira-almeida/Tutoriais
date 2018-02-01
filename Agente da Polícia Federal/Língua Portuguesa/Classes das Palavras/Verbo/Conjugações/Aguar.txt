@@ -1,0 +1,143 @@
+
+Aguar
+
+Formas Nominais
+
+Infinitivo: 		aguar
+Gerúndio: 		aguando
+Particípio: 		aguado
+
+Tipo: 			regular
+Transitividade: 	transitivo direto, intransitivo e pronominal
+Separação silábica: 	a-guar
+
+
+Indicativo
+
+Presente
+
+Eu 	águo
+Tu 	águas
+Ele 	água
+
+Nós 	aguamos
+Vós 	aguais
+Eles 	águam
+
+Pretérito Imperfeito
+
+Eu 	aguava
+Tu 	aguavas
+Ele 	aguava
+
+Nós 	aguávamos
+Vós 	aguáveis 
+Eles 	aguavam
+
+Pretérito Perfeito
+
+Eu 	aguei
+Tu 	aguaste
+Ele 	aguou 
+
+Nós 	aguamos
+Vós 	aguastes 
+Eles 	aguaram
+
+Pretério Mais-que-perfeito
+
+Eu 	aguara
+Tu 	aguaras
+Ele 	aguara
+
+Nós 	aguáramos
+Vós 	aguaráreis
+Eles 	aguararam
+
+Futuro do Presente
+
+Eu 	aguarei
+Tu 	aguarás
+Ele 	aguará
+
+Nós 	aguaremos
+Vós 	aguareis
+Eles 	aguarão
+
+Futuro do Pretérito
+
+Eu 	aguaria
+Tu 	aguarias
+Ele 	aguaria
+
+Nós 	aguaríamos
+Vós 	aguaríeis
+Eles	aguariam
+
+Subjuntivo
+
+Presente
+
+Que eu 		águe
+Que tu 		águes
+Que ele 	águe
+
+Que nós 	aguemos
+Que vós 	agueis
+Que eles 	águem 
+
+
+Pretério Imperfeito
+
+Se eu 		aguasse
+Se tu 		aguasses
+Se ele 		aguasse
+
+Se nós 		aguassemos
+Se vós 		aguásseis
+Se eles 	aguassem
+
+Futuro 
+
+Quando eu 	aguar
+Quando tu 	aguares
+Quando ele 	aguar
+
+Quando nós 	aguarmos
+Quando vós 	aguardes
+Quando eles 	aguarem
+
+
+Imperativo
+
+Afirmativo
+
+
+água		tu
+ague 		ele
+
+aguemos 	nós
+aguai		vós
+águem 		ele
+
+Negativo
+
+
+Não águes 	tu
+Não ague 	ele
+
+Não aguemos 	nós
+Não agueis 	vós
+Não aguem	eles
+	
+Infinitivo Pessoal
+
+por aguar	eu
+por aguares	tu
+por aguar	ele
+
+por aguarmos	nós
+por aguardes	vós
+por aguarem	eles
+
+
