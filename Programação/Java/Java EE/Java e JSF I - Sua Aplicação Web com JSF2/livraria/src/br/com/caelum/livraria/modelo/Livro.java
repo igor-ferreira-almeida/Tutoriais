@@ -1,6 +1,7 @@
 package br.com.caelum.livraria.modelo;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class Livro implements Serializable {
 	private double preco;
 	
 	@Column(name = "DATA_LANCAMENTO")
-	private String dataLancamento;
+	private LocalDate dataLancamento;
 
 	
 	@JoinTable(name="LIVRO_AUTOR",

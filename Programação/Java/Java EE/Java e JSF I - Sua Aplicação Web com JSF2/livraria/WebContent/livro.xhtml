@@ -2,39 +2,79 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:f="http://java.sun.com/jsf/core">
-
-<h:body>
-	<h1>Novo Livro</h1>
-	<h:form>
-		<fieldset>
-			<legend>Dados do Livro</legend>
-			<h:panelGrid columns="2">
-
-				<h:outputLabel value="Titulo:" for="titulo" />
-				<h:inputText id="titulo" value="#{livroMB.livro.titulo}" />
-
-				<h:outputLabel value="ISBN:" for="isbn" />
-				<h:inputText id="isbn" value="#{livroMB.livro.isbn}" />
-
-				<h:outputLabel value="Preço:" for="preco" />
-				<h:inputText id="preco" value="#{livroMB.livro.preco}" />
-
-				<h:outputLabel value="Data de Lançamento:" for="dataLancamento" />
-				<h:inputText id="dataLancamento"
-					value="#{livroMB.livro.dataLancamento}" />
-
-			</h:panelGrid>
-		</fieldset>
+	
+	<h:head>
+		<meta charset="UTF-8" />
+		<title>Novo Livro</title>
+	</h:head>
+	<h:body>
+		<h1>Novo Livro</h1>
+		<h:form>
+			<h:messages id="messages" />
+			<fieldset>
+				<legend>Dados do Livro</legend>
+				<h:panelGrid columns="2">
+	
+					<h:outputLabel value="Titulo:" for="titulo" />
+					<h:inputText id="titulo" required="true" requiredMessage="O título é obrigatório" value="#{livroMB.livro.titulo}">
+						<f:validateLength maximum="40" />
+						<f:ajax event="blur" execute="messages" />
+					</h:inputText>
+	
+					<h:outputLabel value="ISBN:" for="isbn" />
+					<h:inputText id="isbn" validator="#{livroMB.validateISBN}" value="#{livroMB.livro.isbn}" />
+	
+					<h:outputLabel value="Preço:" for="preco" />
+					<h:inputText id="preco" value="#{livroMB.livro.preco}">
+						<f:convertNumber currencySymbol="R$" locale="pt_BR" pattern="R$ #0,00" type="currency" />
+					</h:inputText>
+	
+					<h:outputLabel value="Data de Lançamento:" for="dataLancamento" />
+					<h:inputText converter="localDateConverter" id="dataLancamento" value="#{livroMB.livro.dataLancamento}" />
+	
+				</h:panelGrid>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Dados do Autor</legend>
+				<h:outputLabel value="Selecione Autor:" for="autor" />
+				<h:selectOneMenu id="autor" value="#{livroMB.idAutor}">
+					<f:selectItems itemLabel="#{autor.nome}" itemValue="#{autor.id}" value="#{livroMB.autores}" var="autor" />
+				</h:selectOneMenu>
+				<h:commandButton value="Gravar Autor" action="#{livroMB.gravarAutor}">
+					<f:ajax execute="autor" render="tabelaAutores" />
+				</h:commandButton>
+				
+				<h:dataTable id="tabelaAutores" value="#{livroMB.livro.autores}" var="autor">
+					<h:column>
+						<h:outputText value="#{autor.nome}" />
+					</h:column>
+				</h:dataTable>
+			</fieldset>
+	
+			<h:commandButton value="Gravar" action="#{livroMB.gravar}">
+				<f:ajax execute="@form" render="@form :tabelaLivros" />
+			</h:commandButton>
+		</h:form>
 		
-		<fieldset>
-			<legend>Dados do Autor</legend>
-			<h:outputLabel value="Selecione Autor:" for="autor" />
-			<h:selectOneMenu></h:selectOneMenu>
-			<h:commandButton value="Gravar Autor" action="#{livroMB.gravar}" />
-		</fieldset>
-
-		<h:commandButton value="Gravar" action="#{livroMB.gravar}" />
-	</h:form>
-</h:body>
-
+		<h:dataTable id="tabelaLivros" value="#{livroMB.livros}" var="livro">
+			<h:column>
+				 <f:facet name="header">Título</f:facet>
+				<h:outputText value="#{livro.titulo}" />
+			</h:column>
+			<h:column>
+				 <f:facet name="header">ISBN</f:facet>
+				<h:outputText value="#{livro.isbn}" />
+			</h:column>
+			<h:column>
+				 <f:facet name="header">Preço</f:facet>
+				<h:outputText value="#{livro.preco}" />
+			</h:column>
+			<h:column>
+				 <f:facet name="header">Data de Lançamento</f:facet>
+				<h:outputText converter="localDateConverter" value="#{livro.dataLancamento}" />
+			</h:column>
+		</h:dataTable>
+		
+	</h:body>
 </html>
