@@ -1,5 +1,7 @@
 package br.com.caelum.livraria.modelo;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @Table(name = "AUTOR")
 @ToString
-public class Autor {
+public class Autor implements Serializable {
+
+	private static final long serialVersionUID = 8252418215841633555L;
 
 	@Column(name = "ID")
 	@Id

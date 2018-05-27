@@ -1,5 +1,6 @@
 package br.com.caelum.livraria.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @Table(name = "LIVRO")
 @ToString
-public class Livro {
+public class Livro implements Serializable {
+
+	private static final long serialVersionUID = -2536734255054101766L;
 
 	@Column(name = "ID")
 	@Id
@@ -44,8 +47,8 @@ public class Livro {
 
 	
 	@JoinTable(name="LIVRO_AUTOR",
-            joinColumns={@JoinColumn(name="AUTOR_ID")},
-            inverseJoinColumns={@JoinColumn(name="LIVRO_ID")})
+            joinColumns={@JoinColumn(name="LIVRO_ID")},
+            inverseJoinColumns={@JoinColumn(name="AUTOR_ID")})
 	@ManyToMany
 	private List<Autor> autores = new ArrayList<Autor>();
 	

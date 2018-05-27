@@ -15,3 +15,7 @@ S
 #WebContent/WEB-INF/faces-config.xml,8\e\8eb4bda1d492b32a971cb0c5d69750da9cf0fedf
 L
 src/META-INF/persistence.xml,c\9\c9542b0c61459454efdae90e75de54a72077498b
+\
+,src/br/com/caelum/livraria/bean/LivroMB.java,0\4\04145aa8a943e0e4461e17f1b54177fcaf034f3a
+\
+,src/br/com/caelum/livraria/bean/AutorMB.java,7\b\7bf2adf6a59c6e4873a01a5ae14ebae29d3819c7
