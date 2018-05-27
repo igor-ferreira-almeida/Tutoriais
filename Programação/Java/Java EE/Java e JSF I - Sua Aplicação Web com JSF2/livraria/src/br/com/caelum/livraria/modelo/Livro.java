@@ -3,75 +3,53 @@ package br.com.caelum.livraria.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@EqualsAndHashCode
 @Entity
+@NoArgsConstructor
+@Table(name = "LIVRO")
+@ToString
 public class Livro {
 
+	@Column(name = "ID")
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 
+	@Column(name = "TITULO")
 	private String titulo;
+	
+	@Column(name = "ISBN")
 	private String isbn;
+	
+	@Column(name = "PRECO")
 	private double preco;
+	
+	@Column(name = "DATA_LANCAMENTO")
 	private String dataLancamento;
 
+	
+	@JoinTable(name="LIVRO_AUTOR",
+            joinColumns={@JoinColumn(name="AUTOR_ID")},
+            inverseJoinColumns={@JoinColumn(name="LIVRO_ID")})
 	@ManyToMany
 	private List<Autor> autores = new ArrayList<Autor>();
-
-	public List<Autor> getAutores() {
-		return autores;
-	}
-
+	
 	public void adicionaAutor(Autor autor) {
 		this.autores.add(autor);
 	}
-
-	public Livro() {
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-
-	public double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
-
-	public String getDataLancamento() {
-		return dataLancamento;
-	}
-
-	public void setDataLancamento(String dataLancamento) {
-		this.dataLancamento = dataLancamento;
-	}
-
 }

@@ -1,0 +1,4 @@
+autoEnabled=true
+eclipse.preferences.version=1
+extraProperties=
+fileExclusions=FILE\:WebContent/WEB-INF/lib/mysql-connector-java-5.1.46.jar

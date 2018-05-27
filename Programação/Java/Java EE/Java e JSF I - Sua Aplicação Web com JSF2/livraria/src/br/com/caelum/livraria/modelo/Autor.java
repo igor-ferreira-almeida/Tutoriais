@@ -1,31 +1,29 @@
 package br.com.caelum.livraria.modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@EqualsAndHashCode
 @Entity
+@NoArgsConstructor
+@Table(name = "AUTOR")
+@ToString
 public class Autor {
 
+	@Column(name = "ID")
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
+	
+	@Column(name = "NOME")
 	private String nome;
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 }
