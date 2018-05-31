@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<meta charset="UTF-8" />
+		<title>Novo Livro</title>
+		
+		<h:outputStylesheet library="css" name="style.css" />
+		<ui:insert name="css-files"></ui:insert>
+		
+	</h:head>
+	<h:body>
+		<header id="header">
+			<h:graphicImage library="img" name="logo.png" />
+			<h1><ui:insert name="page-title"></ui:insert></h1>
+		</header>
+		
+		<main id="content">
+			<ui:insert name="content"></ui:insert>
+		</main>
+		
+		<footer>Copyright</footer>
+	</h:body>
+</html>

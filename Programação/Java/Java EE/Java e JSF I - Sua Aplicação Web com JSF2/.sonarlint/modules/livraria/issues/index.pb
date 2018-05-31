@@ -19,3 +19,9 @@ L
 ,src/br/com/caelum/livraria/bean/LivroMB.java,0\4\04145aa8a943e0e4461e17f1b54177fcaf034f3a
 \
 ,src/br/com/caelum/livraria/bean/AutorMB.java,7\b\7bf2adf6a59c6e4873a01a5ae14ebae29d3819c7
+F
+WebContent/autor.xhtml,a\a\aaea1489365de55ccc07cba93507c10c645377e2
+W
+'src/br/com/caelum/livraria/dao/DAO.java,f\8\f8760a5fdd933b0143f16ce7117943f34a9260c6
+r
+Bsrc/br/com/caelum/livraria/converter/faces/LocalDateConverter.java,d\0\d08efde743398e89811482e821ac85fcac9069ce

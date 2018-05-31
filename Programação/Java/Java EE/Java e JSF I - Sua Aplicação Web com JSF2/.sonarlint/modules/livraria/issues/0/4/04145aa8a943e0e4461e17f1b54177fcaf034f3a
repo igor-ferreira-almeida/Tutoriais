@@ -1,6 +1,5 @@
 
-j
-squid:S106"9Replace this use of System.out or System.err by a logger.(‡’άψϊÿÿÿÿHψRMAJORZ
+_squid:S11729"&Remove these unused method parameters.(μοϊωÿÿÿÿ8΄°¨Ί,HίRMAJORZ
 CODE_SMELL
-ysquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(Μό…ύÿÿÿÿHωRMAJORZ
+Ζ%squid:RedundantThrowsDeclarationCheck9"sRemove the declaration of thrown exception 'javax.faces.validator.ValidatorException' which is a runtime exception.(μοϊωÿÿÿÿ8Ψ¥Ί,HήRMINORZ
 CODE_SMELL

@@ -62,6 +62,10 @@ public class LivroMB implements Serializable {
 		}
 	}
 	
+	public String formAutor() {
+		return "autor?faces-redirect=true";
+	}
+	
 	private void resetForm() {
 		livro = new Livro();
 	}
