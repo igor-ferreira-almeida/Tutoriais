@@ -5,9 +5,6 @@
 	  xmlns:ui="http://java.sun.com/jsf/facelets">
 	  
 	<ui:composition template="_template.xhtml">
-		<ui:define name="css-files">
-			<h:outputStylesheet library="css" name="autor.css" />
-		</ui:define>
 		
 		<ui:define name="page-title">Novo Autor</ui:define>
 		<ui:define name="content">
@@ -21,6 +18,21 @@
 					</h:panelGrid>
 				</fieldset>
 			</h:form>
+			
+			<h:form id="formTabelaAutores">
+				<h:dataTable var="autor" value="#{autorMB.autores}">
+					<h:column>
+						<f:facet name="header">Autor</f:facet>
+						<h:outputText value="#{autor.nome}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Ação</f:facet>
+						<h:commandLink action="#{autorMB.remover(autor)}" value="Remover" /> 
+						<h:commandLink action="#{autorMB.carregar(autor)}" value="Atualizar" />
+					</h:column>
+				</h:dataTable>
+			</h:form>
+			
 		</ui:define>
 	</ui:composition>
 </html>

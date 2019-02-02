@@ -1,4 +1,5 @@
 
-e
-squid:S106"9Replace this use of System.out or System.err by a logger.(ฌื๖HRMAJORZ
+squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(๊๑Üข8ý•ฅเป,HRMINORZ
+CODE_SMELL
+asquid:S1948"*Make "autorDAO" transient or serializable.(ะ๛ใ8ÿังเป,HRCRITICALZ
 CODE_SMELL

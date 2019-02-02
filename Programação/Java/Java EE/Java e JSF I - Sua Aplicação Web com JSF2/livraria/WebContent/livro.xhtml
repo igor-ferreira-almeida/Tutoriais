@@ -62,33 +62,44 @@
 						<h:column>
 							<h:outputText value="#{autor.nome}" />
 						</h:column>
+						<h:column>
+							<h:commandLink action="#{livroMB.removerAutor(autor)}" value="Remover" /> 
+						</h:column>
 					</h:dataTable>
 				</fieldset>
 		
 				<h:commandButton value="Gravar" action="#{livroMB.gravar}">
-					<f:ajax execute="@form" render="@form :tabelaLivros" />
+					<f:ajax execute="@form" render="@form :formTabelaLivros:tabelaLivros" />
 				</h:commandButton>
 			</h:form>
 		
-			<h:dataTable id="tabelaLivros" value="#{livroMB.livros}" var="livro">
-				<h:column>
-					<f:facet name="header">Título</f:facet>
-					<h:outputText value="#{livro.titulo}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">ISBN</f:facet>
-					<h:outputText value="#{livro.isbn}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Preço</f:facet>
-					<h:outputText value="#{livro.preco}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Data de Lançamento</f:facet>
-					<h:outputText converter="localDateConverter"
-						value="#{livro.dataLancamento}" />
-				</h:column>
-			</h:dataTable>
+			<h:form id="formTabelaLivros">
+				<h:dataTable id="tabelaLivros" value="#{livroMB.livros}" var="livro">
+					<h:column>
+						<f:facet name="header">Título</f:facet>
+						<h:outputText value="#{livro.titulo}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">ISBN</f:facet>
+						<h:outputText value="#{livro.isbn}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Preço</f:facet>
+						<h:outputText value="#{livro.preco}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Data de Lançamento</f:facet>
+						<h:outputText converter="localDateConverter"
+							value="#{livro.dataLancamento}" />
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Ação</f:facet>
+						<h:commandLink action="#{livroMB.remover(livro)}" value="Remover" /> 
+						<h:commandLink action="#{livroMB.carregar(livro)}" value="Atualizar" />
+					</h:column>
+				</h:dataTable>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </html>

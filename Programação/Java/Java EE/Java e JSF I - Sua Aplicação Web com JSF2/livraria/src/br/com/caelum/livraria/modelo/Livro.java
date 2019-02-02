@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -50,10 +51,14 @@ public class Livro implements Serializable {
 	@JoinTable(name="LIVRO_AUTOR",
             joinColumns={@JoinColumn(name="LIVRO_ID")},
             inverseJoinColumns={@JoinColumn(name="AUTOR_ID")})
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Autor> autores = new ArrayList<Autor>();
 	
 	public void adicionaAutor(Autor autor) {
 		this.autores.add(autor);
+	}
+
+	public void removerAutor(Autor autor) {
+		this.autores.remove(autor);
 	}
 }

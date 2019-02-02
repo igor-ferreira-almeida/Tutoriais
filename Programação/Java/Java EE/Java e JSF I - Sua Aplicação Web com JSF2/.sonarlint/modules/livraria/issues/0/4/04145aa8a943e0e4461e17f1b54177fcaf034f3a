@@ -1,5 +1,15 @@
 
-_squid:S11729"&Remove these unused method parameters.(ìïúùÿÿÿÿ8´°¨šº,HßRMAJORZ
+squid:S2293+"YReplace the type specification in this constructor call with the diamond operator ("<>").(êñÜ¢8¤‚°à»,H®RMINORZ
 CODE_SMELL
-Æ%squid:RedundantThrowsDeclarationCheck9"sRemove the declaration of thrown exception 'javax.faces.validator.ValidatorException' which is a runtime exception.(ìïúùÿÿÿÿ8Ø¥šº,HŞRMINORZ
+asquid:S1948&"*Make "autorDAO" transient or serializable.(Ğûã8¤‚°à»,H°RCRITICALZ
+CODE_SMELL
+Æ%squid:RedundantThrowsDeclarationCheckU"sRemove the declaration of thrown exception 'javax.faces.validator.ValidatorException' which is a runtime exception.(ìïúùÿÿÿÿ8Ø¥šº,HğRMINORZ
+CODE_SMELL
+’squid:S2293*"YReplace the type specification in this constructor call with the diamond operator ("<>").(ğî…ƒøÿÿÿÿ8›ó®à»,H¦RMINORZ
+CODE_SMELL
+_squid:S1172U"&Remove these unused method parameters.(ìïúùÿÿÿÿ8´°¨šº,HïRMAJORZ
+CODE_SMELL
+asquid:S1948$"*Make "livroDAO" transient or serializable.(Ô‡îª8›ó®à»,H¨RCRITICALZ
+CODE_SMELL
+rsquid:S3400^"9Remove this method and declare a constant for this value.(ÃşÃğùÿÿÿÿ8†÷ÌÁ»,HîRMINORZ
 CODE_SMELL

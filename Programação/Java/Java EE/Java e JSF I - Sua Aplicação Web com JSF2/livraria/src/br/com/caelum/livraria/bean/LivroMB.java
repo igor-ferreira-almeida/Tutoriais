@@ -3,6 +3,7 @@ package br.com.caelum.livraria.bean;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -32,16 +33,26 @@ public class LivroMB implements Serializable {
 	@Setter
 	private Long idAutor;
 	
+	private DAO<Livro> livroDAO;
+	
+	private DAO<Autor> autorDAO;
+	
+	@PostConstruct
+	public void initialize() {
+		livroDAO = new DAO<Livro>(Livro.class);
+		autorDAO = new DAO<Autor>(Autor.class);
+	}
+	
 	public List<Autor> getAutores() {
-		return new DAO<Autor>(Autor.class).listaTodos();
+		return autorDAO.listaTodos();
 	}
 
 	public List<Livro> getLivros() {
-		return new DAO<Livro>(Livro.class).listaTodos();
+		return livroDAO.listaTodos();
 	}
 	
 	public void gravarAutor() {
-		Autor autor = new DAO<Autor>(Autor.class).buscaPorId(idAutor);
+		Autor autor = autorDAO.buscaPorId(idAutor);
 		livro.adicionaAutor(autor);
 	}
 	
@@ -49,9 +60,26 @@ public class LivroMB implements Serializable {
 		if (livro.getAutores().isEmpty()) {
 			FacesContext.getCurrentInstance().addMessage("autor", new FacesMessage("Livro deve ter pelo menos um Autor."));
 		}
-
-		new DAO<Livro>(Livro.class).adiciona(this.livro);
+		
+		if(livro.getId() == null) {
+			livroDAO.adiciona(livro);
+		} else {
+			livroDAO.atualiza(livro);
+		}
+		
 		resetForm();
+	}
+	
+	public void remover(Livro livro) {
+		livroDAO.remove(livro);
+	}
+	
+	public void removerAutor(Autor autor) {
+		this.livro.removerAutor(autor);
+	}
+	
+	public void carregar(Livro livro) {
+		this.livro = livro;
 	}
 	
 	public void validateISBN(FacesContext facesContext, UIComponent component, Object value) throws ValidatorException {

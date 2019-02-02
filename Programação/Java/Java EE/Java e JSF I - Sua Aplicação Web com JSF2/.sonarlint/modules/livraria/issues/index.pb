@@ -25,3 +25,17 @@ W
 'src/br/com/caelum/livraria/dao/DAO.java,f\8\f8760a5fdd933b0143f16ce7117943f34a9260c6
 r
 Bsrc/br/com/caelum/livraria/converter/faces/LocalDateConverter.java,d\0\d08efde743398e89811482e821ac85fcac9069ce
+e
+5src/br/com/caelum/livraria/util/LogPhaseListener.java,3\b\3b3bdfa92218c2e90116a845ff40ea1a4bb4e977
+g
+7.settings/org.eclipse.wst.common.project.facet.core.xml,8\b\8b624f194ffa4bcd04c49523dded491e3741fbc3
+Z
+*.settings/org.eclipse.wst.common.component,1\7\172668b1e518ff61cc0661d9ebba42feeec51193
+R
+"WebContent/resources/css/livro.css,0\a\0a7a4506992f0414c620cd55a2ed1203bcec781f
+R
+"WebContent/resources/css/autor.css,6\7\67243070fc5589bfe8a4060e02a9d5300cecadb8
+R
+"WebContent/resources/css/style.css,4\d\4db2ad58660c1b2426cd0528f3917ea61890b1f7
+J
+WebContent/_template.xhtml,2\3\232de9bdb40288c9c501e6d6ab7e1649e69c64ef
