@@ -1,0 +1,21 @@
+
+git ls-files
+
+Iniciar um projeto
+git init 
+
+Visualizando todos os commits
+
+git log
+git log --pretty=oneline
+
+
+Criador das linhas 
+git blame NOME_ARQUIVO
+
+Criando tags
+
+git tag NOME_TAG CODIGO_COMMIT
+git tag v1.0 da15878adfce2367aa4b0ec9f1bf81f720112179
+
+git push origin --tags
