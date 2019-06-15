@@ -11,7 +11,6 @@ botaoAdicionarPaciente.addEventListener("click", function(event) {
     return;
   }
 
-  var trPaciente = montaLinhaTabela(paciente);
   var erros = validaPaciente(paciente);
 
   if(erros.length > 0) {
@@ -59,7 +58,8 @@ function montaColunaTabela(classe, texto) {
   return td;
 }
 
-function adicionaLinha(trPaciente) {
+function adicionaLinha(paciente) {
+  var trPaciente = montaLinhaTabela(paciente);
   var tabela = document.querySelector("#tabela-pacientes");
   tabela.appendChild(trPaciente);
 }
