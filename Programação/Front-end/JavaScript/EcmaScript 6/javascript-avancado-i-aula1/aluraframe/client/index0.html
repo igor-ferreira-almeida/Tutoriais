@@ -11,7 +11,7 @@
 
     <h1 class="text-center">Negociações</h1>
 
-    <form class="form" onsubmit="negociacaoController.adiciona(event)">
+    <form class="form">
 
         <div class="form-group">
             <label for="data">Data</label>
@@ -59,9 +59,20 @@
         </tfoot>
     </table>
     <script src="js/app/models/Negociacao.js"></script>
-    <script src="js/app/controllers/NegociacaoController.js"></script>
+    <script src="js/app/models/NegociacaoController.js"></script>
     <script>
-      let negociacaoController = new NegociacaoController();
+      let n1 = new Negociacao(new Date(), 5, 700);
+      n1._quantidade = 1000000;
+
+      console.log(n1._data);
+      let amanha = new Date();
+      amanha.setDate(13);
+      n1.data = amanha;
+      console.log(n1._data);
+      n1.data.setDate(13);
+      console.log(n1.data);
+
+      // trocar var por let garante o escopo de bloco para as variáveis
     </script>
 </body>
 </html>
