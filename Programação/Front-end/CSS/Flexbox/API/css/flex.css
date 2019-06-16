@@ -58,7 +58,7 @@ div:nth-child(8) {
 .flexItem {
   flex-grow: 1;
   flex-shrink: 1;
-  /* flex-basis: 25%; width: 25%*/
+  /* flex-basis: 25%; width: 25% */
 }
 
 div:nth-child(3) {
