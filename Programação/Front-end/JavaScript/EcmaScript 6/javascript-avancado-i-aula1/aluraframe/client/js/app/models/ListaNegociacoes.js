@@ -2,6 +2,7 @@
 class ListaNegociacoes {
   constructor() {
     this._negociacoes = [];
+    this._volumeTotal = 0;
   }
 
   adiciona(negociacao) {
@@ -10,5 +11,9 @@ class ListaNegociacoes {
 
   get negociacoes() {
     return [].concat(this._negociacoes);
+  }
+
+  get volumeTotal() {
+    return this._negociacoes.reduce((total, n) => total + n.volume, 0.0);
   }
 }
