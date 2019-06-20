@@ -57,6 +57,49 @@
     <script src="js/app/controllers/NegociacaoController.js"></script>
     <script>
       let negociacaoController = new NegociacaoController();
+    //   let negociacao = new Negociacao(new Date(), 1, 23);
+    //   let proxy = new Proxy(negociacao, {
+    //     // get: function(target, prop, receiver) {
+    //     //     console.log(`a propriedade "${prop}" interceptada`);
+    //     //     return Reflect.get(target, prop, receiver);
+    //     // }
+
+    //     set: function(target, prop, value, receiver) {
+    //         console.log("target: " + target); // Negociacao: objeto original passado pelo proxy
+    //         console.log("prop: " + prop); // Propriedade da classe
+    //         console.log("value: " + value); // valor da propriedade
+    //         console.log("receiver: " + receiver); // referência ao próprio proxy
+    //         console.log(`valor anterior ${target[prop]} novo valor "${value}"`);
+
+    //         return Reflect.set(target, prop, value, receiver);
+    //     }
+    //   });
+
+    //   proxy._quantidade = 10;
+    //   proxy._valor = 200;
+
+        let listaNegociacoes = new Proxy(new ListaNegociacoes(), {
+            // set: function(target, prop, value, receiver) {
+            //     console.log(`valor anterior: ${target[prop]}, novo valor: ${value}`);
+            //     return Reflect.set(target, prop, value, receiver);
+            // }
+
+            get(target, prop, receiver) {
+
+                if(['adiciona', 'esvazia'].includes(prop) && typeof(target[prop] == typeof(Function))) {
+                    return function() {
+                        // console.log("Parâmetros da(o) função/método: " + arguments); // array acessível por qualquer função
+                        // console.log(arguments[0]);
+                        console.log(`interceptando ${prop}`);
+                        Reflect.apply(target[prop], target, arguments);
+                    }
+                } 
+                return Reflect.get(target, prop, receiver);
+            }
+        });
+
+        listaNegociacoes.adiciona(new Negociacao(new Date(), 1, 100));
+        listaNegociacoes.esvazia();
     </script>
 </body>
 </html>
