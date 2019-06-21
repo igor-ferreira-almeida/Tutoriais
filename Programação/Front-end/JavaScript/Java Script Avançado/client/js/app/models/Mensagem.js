@@ -13,5 +13,3 @@ class Mensagem {
     this._texto = texto;
   }
 }
-
-console.log(this._texto);

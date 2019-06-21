@@ -18,6 +18,20 @@ class NegociacaoController {
     this._mensagem = new Bind(new Mensagem(), new MensagemView($("#mensagemView")), 'texto');
   }
 
+  importar() {
+    let service = new NegociacaoService();
+    service.listNegociacoesSemana((erro, negociacoes) => {
+      
+      if(erro) {
+        this._mensagem.texto = erro;
+        return;
+      } 
+
+      negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+      this._mensagem.texto = "Negociações importadas com sucesso";
+    });
+  }
+
   adiciona(event) {
     event.preventDefault();
     let negociacao = this._criaNegociacao();
