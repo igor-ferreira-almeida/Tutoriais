@@ -75,6 +75,12 @@
                 console.log(event.target.error.name);
             };
         }
+
+        ConnectionFactory.getConnection().then(connection => {
+            new NegociacaoDAO(connection).adiciona(new Negociacao(new Date(), 7, 1000));
+        });
+
+
     </script>
 
 </body>
