@@ -96,7 +96,7 @@ class NegociacaoService {
             )
         ).catch(erro => {
             console.log(erro);
-            throw new Error("Não foi possível apagar a negociação");
+            throw new Error("Não foi possível importar as negociações");
         });
     }
 }
