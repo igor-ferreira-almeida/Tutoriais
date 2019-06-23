@@ -25,6 +25,18 @@ class NegociacaoDAO {
         });
     }
 
+    apagaTodas() {
+        return new Promise((resolve, reject) => {
+            let transaction = this._connection.transaction(this._store, "readwrite");
+            let store = transaction.objectStore(this._store);
+
+            let request = store.clear();
+
+            request.onsuccess = e => resolve("Negociações removidas com sucesso");
+            request.onerror = e => reject("Não foi possível remover as negociações");
+        });
+    }
+
     listaTodas() {
         return new Promise((resolve, reject) => {
             let transaction = this._connection.transaction(this._store, "readwrite");

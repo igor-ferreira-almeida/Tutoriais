@@ -6,7 +6,7 @@ class NegociacaoService {
 
     listNegociacoes() {
         return Promise.all([
-            this.listNegociacoesSemana(),  
+            this.listNegociacoesSemana(),
             this.listNegociacoesSemanaAnterior(),
             this.listNegociacoesSemanaRetrasada()
         ]).then(periodos => {
@@ -30,6 +30,39 @@ class NegociacaoService {
         return promise;
     }
 
+    listar() {
+        return ConnectionFactory.getConnection()
+            .then(connection => {
+                let dao = new NegociacaoDAO(connection);
+                dao.listaTodas()
+            }).catch(() => {
+                throw new Error("Não foi possível listar as negociações");
+            });
+    }
+
+    cadastrar(negociacao) {
+        return ConnectionFactory.getConnection()
+            .then(connection => {
+                let dao = new NegociacaoDAO(connection);
+                dao.adiciona(negociacao).then(() => "Negociação adicionada com sucesso");
+            }).catch(erro => {
+                console.log(erro);
+                throw new Error("Não foi possível adicionar a negociação");
+            });
+    }
+
+    apaga() {
+        return ConnectionFactory.getConnection()
+            .then(connection => new NegociacaoDAO(connection))
+            .then(dao => dao.apagaTodas())
+            .then(() => "Negociações apagadas com sucesso")
+            .catch(erro => {
+                console.log(erro);
+                throw new Error("Não foi possível apagar a negociação");
+            })
+
+    }
+
     listNegociacoesSemanaAnterior() {
         let promise = new Promise((resolve, reject) => {
             this._http.get("negociacoes/anterior").then(negociacoes => {
@@ -51,8 +84,19 @@ class NegociacaoService {
                 console.log(erro);
                 reject("Não foi possível obter as negociações da semana retrasada");
             });
-        });      
+        });
 
         return promise;
+    }
+
+    importar(listaAtual) {
+        return this.listNegociacoes()
+            .then(negociacoes => negociacoes.filter(negociacao =>
+                !listaAtual.some(negociacaoExistente => negociacao.equals(negociacaoExistente))
+            )
+        ).catch(erro => {
+            console.log(erro);
+            throw new Error("Não foi possível apagar a negociação");
+        });
     }
 }
