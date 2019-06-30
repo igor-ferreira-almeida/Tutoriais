@@ -4,6 +4,7 @@ class Negociacao {
         this._quantidade = quantidade;
         this._valor = valor;
     }
+    // constructor(private _data: Date, private _quantidade: number, private _valor: number) {}
     get data() {
         return this._data;
     }
